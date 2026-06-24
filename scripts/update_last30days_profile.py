@@ -14,7 +14,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL_DIR = ROOT / ".agents" / "skills" / "last30days"
+SKILL_DIR = (ROOT / os.environ.get("LAST30DAYS_SKILL_DIR", ".agents/skills/last30days")).resolve()
 ENGINE = SKILL_DIR / "scripts" / "last30days.py"
 DATA_PATH = ROOT / "data" / "last30days.md"
 SVG_PATH = ROOT / "assets" / "last30days.svg"
@@ -151,4 +151,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
