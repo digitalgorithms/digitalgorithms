@@ -27,14 +27,6 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: "22"
-
-      - name: Install Last30Days skill
-        run: npx -y skills add mvanhorn/last30days-skill -g
-
       - name: Check out Last30Days runtime
         run: |
           git clone https://github.com/mvanhorn/last30days-skill.git .last30days-skill
