@@ -36,7 +36,9 @@ jobs:
         run: npx -y skills add mvanhorn/last30days-skill -g
 
       - name: Check out Last30Days runtime
-        run: git clone --depth 1 https://github.com/mvanhorn/last30days-skill.git .last30days-skill
+        run: |
+          git clone https://github.com/mvanhorn/last30days-skill.git .last30days-skill
+          git -C .last30days-skill checkout 977f0beed5ad4dbc604f6762a4b27ab8efbd3504
 
       - name: Generate Last30Days profile SVG
         env:
