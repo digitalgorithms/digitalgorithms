@@ -19,7 +19,7 @@
   </style>
   <text x="42" y="48" class="eyebrow">LAST30DAYS</text>
   <text x="42" y="86" class="title">What changed recently</text>
-  <text x="42" y="110" class="meta">Generated from mvanhorn/last30days-skill · updated 2026-06-24 23:34 UTC</text>
+  <text x="42" y="110" class="meta">Generated from mvanhorn/last30days-skill · updated 2026-06-24 23:35 UTC</text>
   <text x="42" y="130" class="body">No strong public Last30Days signal was found for DIGITALGORITHMS in the latest run.</text>
 <text x="42" y="154" class="body">The workflow refreshes weekly and will surface GitHub, HN, and Reddit evidence when available.</text>
 <text x="42" y="178" class="body">Raw output is stored in data/last30days.md for review.</text>
