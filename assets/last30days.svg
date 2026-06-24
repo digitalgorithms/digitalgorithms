@@ -19,11 +19,9 @@
   </style>
   <text x="42" y="48" class="eyebrow">LAST30DAYS</text>
   <text x="42" y="86" class="title">What changed recently</text>
-  <text x="42" y="110" class="meta">Generated from mvanhorn/last30days-skill · updated 2026-06-24 23:32 UTC</text>
-  <text x="42" y="130" class="body">🌐 last30days v3.8.1 · synced 2026-06-24 - Date range: 2026-05-25 to 2026-06-24 -</text>
-<text x="42" y="154" class="body">Sources: 1 active (Reddit) - Top evidence is highly concentrated in one source. Ranked</text>
-<text x="42" y="178" class="body">Evidence Clusters 1. How many of u have GitHuB profile? Usage!! (score 0, 1 item,</text>
-<text x="42" y="202" class="body">sources: Reddit) 1. [reddit] How many of u have GitHuB profile? Usage!! - 2026-06-21 |</text>
-<text x="42" y="226" class="body">r/CharteredAccountants | score:0 - URL:...</text>
+  <text x="42" y="110" class="meta">Generated from mvanhorn/last30days-skill · updated 2026-06-24 23:34 UTC</text>
+  <text x="42" y="130" class="body">No strong public Last30Days signal was found for DIGITALGORITHMS in the latest run.</text>
+<text x="42" y="154" class="body">The workflow refreshes weekly and will surface GitHub, HN, and Reddit evidence when available.</text>
+<text x="42" y="178" class="body">Raw output is stored in data/last30days.md for review.</text>
   <text x="42" y="276" class="footer">Source: https://github.com/mvanhorn/last30days-skill</text>
 </svg>

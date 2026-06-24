@@ -77,7 +77,12 @@ def strip_markdown(value: str) -> str:
 
 
 def summarize(markdown: str) -> list[str]:
-    if "Limited recent data" in markdown or "Evidence is thin" in markdown:
+    if (
+        "Limited recent data" in markdown
+        or "Evidence is thin" in markdown
+        or "Top evidence is highly concentrated" in markdown
+        or "score 0" in markdown
+    ):
         return [
             "No strong public Last30Days signal was found for DIGITALGORITHMS in the latest run.",
             "The workflow refreshes weekly and will surface GitHub, HN, and Reddit evidence when available.",
