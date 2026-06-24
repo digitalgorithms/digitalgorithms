@@ -77,14 +77,21 @@ def strip_markdown(value: str) -> str:
 
 
 def summarize(markdown: str) -> list[str]:
+    if "Limited recent data" in markdown or "Evidence is thin" in markdown:
+        return [
+            "No strong public Last30Days signal was found for DIGITALGORITHMS in the latest run.",
+            "The workflow refreshes weekly and will surface GitHub, HN, and Reddit evidence when available.",
+            "Raw output is stored in data/last30days.md for review.",
+        ]
+
     lines: list[str] = []
     for raw_line in markdown.splitlines():
         line = strip_markdown(raw_line)
         if not line:
             continue
-        if line.startswith(("last30days", "What I learned:", "KEY PATTERNS")):
+        if line.startswith(("last30days", "What I learned:", "KEY PATTERNS", "Safety note")):
             continue
-        if line.startswith(("---", "✅", "📎", "Raw results saved")):
+        if line.startswith(("---", "✅", "📎", "Raw results saved", "Date range", "Sources", "Freshness", "Warnings")):
             continue
         lines.append(line)
 
@@ -92,7 +99,7 @@ def summarize(markdown: str) -> list[str]:
     if not joined:
         joined = "Last30Days generated a fresh profile research snapshot."
 
-    wrapped = textwrap.wrap(joined, width=88, max_lines=7, placeholder="...")
+    wrapped = textwrap.wrap(joined, width=88, max_lines=5, placeholder="...")
     return wrapped or ["Last30Days generated a fresh profile research snapshot."]
 
 

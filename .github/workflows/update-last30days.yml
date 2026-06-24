@@ -45,9 +45,10 @@ jobs:
           SETUP_COMPLETE: "true"
           FROM_BROWSER: "off"
           LAST30DAYS_SKILL_DIR: ".last30days-skill/skills/last30days"
-          LAST30DAYS_TOPIC: "DIGITALGORITHMS"
+          LAST30DAYS_TOPIC: "digitalgorithms GitHub profile"
           LAST30DAYS_GITHUB_USER: "digitalgorithms"
           LAST30DAYS_SEARCH: "github,hn,reddit"
+          EXCLUDE_SOURCES: "jobs"
         run: python scripts/update_last30days_profile.py
 
       - name: Commit generated updates
