@@ -1,0 +1,60 @@
+name: Update Last30Days profile card
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 8 * * 1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: last30days-profile-card
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Generate profile SVG
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+
+      - name: Install Last30Days skill
+        run: npx -y skills add mvanhorn/last30days-skill
+
+      - name: Generate Last30Days profile SVG
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
+          SETUP_COMPLETE: "true"
+          FROM_BROWSER: "off"
+          LAST30DAYS_TOPIC: "DIGITALGORITHMS"
+          LAST30DAYS_GITHUB_USER: "digitalgorithms"
+          LAST30DAYS_SEARCH: "github,hn,reddit"
+        run: python scripts/update_last30days_profile.py
+
+      - name: Commit generated updates
+        run: |
+          if git diff --quiet -- assets/last30days.svg data/last30days.md; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/last30days.svg data/last30days.md
+          git commit -m "chore(profile): update Last30Days card"
+          git push
+
